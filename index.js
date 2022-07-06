@@ -25,7 +25,7 @@ const morgan = require('morgan');
     })
 
 // Handle multiple routes 
-    app.get('/about', async(req, res)=>{
+    app.get('/about',localMiddleware, async(req, res)=>{
 
         res.send(`<h1> I am about</h1>`)
     })
@@ -59,11 +59,22 @@ const morgan = require('morgan');
 
     function globalMiddleware(req, res, next){
 
+        if(req.query.bad){
+            return res.status(400).send("bad request")
+        }
         console.log("i am global middleware")
         
         next();
     }
 
+    // Local middleware 
+
+    function localMiddleware(req, res, next){
+
+        console.log('local middle ware kamal');
+
+        next();
+    }
 
     // middleware 
     function middlewareSignature(req, res, next){
