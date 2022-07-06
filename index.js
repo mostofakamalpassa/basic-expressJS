@@ -13,6 +13,7 @@
 
         // we can sen any type of data by using response   like html , json, image, sql, xml, yml, pdf, word file etc
         response.send("hello kamal");
+        console.log(response)
     })
 
 
@@ -24,3 +25,13 @@
 
 // // esm for file import 
 // import express from 'express';
+
+
+
+function handlerFunction(request, response, next){
+
+    // read request object 
+    // process request 
+
+    // response request 
+}
