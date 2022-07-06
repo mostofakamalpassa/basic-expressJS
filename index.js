@@ -49,6 +49,24 @@
             res.end();
         })
     })
+/* 
+
+    
+Responsibilities of a middleware 
+    Handle common task
+    request logs
+    Filter request
+    Modify or reshape request
+    Validate request body
+    Authenticate or authorize request
+    Add additional details to request body
+    Response bad requests
+    Pass requests to next middleware to response handler
+
+*/
+
+
+
 
  app.listen(5000,()=>{
     console.log('server is running')
