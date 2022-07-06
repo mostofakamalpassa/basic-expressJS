@@ -2,10 +2,17 @@
 // common js  old way node js file required 
  const express =require('express');
  const fs = require('fs');
-
+const cors = require('cors');
+const morgan = require('morgan');
  const app = express();
 
 
+ app.use(morgan());
+
+ app.use(cors());
+ app.use(express.json());
+
+ app.use(globalMiddleware);
 // send html to browser 
 
     // route  like url localhost:5000/admin or /contact or /about or /others
@@ -48,7 +55,22 @@
             res.write(data);
             res.end();
         })
-    })
+    });
+
+    function globalMiddleware(req, res, next){
+
+        console.log("i am global middleware")
+        
+        next();
+    }
+
+
+    // middleware 
+    function middlewareSignature(req, res, next){
+
+
+        next();
+    }
 /* 
 
     
@@ -65,6 +87,11 @@ Responsibilities of a middleware
 
 */
 
+/* 
+     if every things seems  controller will call response methods
+
+    if every things seems ok middleware call next methods
+*/
 
 
 
