@@ -16,7 +16,21 @@
         console.log(response)
     })
 
+// Handle multiple routes 
+    app.get('/about', async(req, res)=>{
 
+        res.send(`<h1> I am about</h1>`)
+    })
+
+    app.get('/help', async(req, res)=>{
+
+        res.send(`<h1> I am Healp</h1>`)
+    })
+
+    app.get('/others', async(req, res)=>{
+
+        res.send(`<h1> I am others</h1>`)
+    })
 
 
  app.listen(5000,()=>{
