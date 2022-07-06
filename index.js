@@ -1,6 +1,7 @@
 
 // common js  old way node js file required 
  const express =require('express');
+ const fs = require('fs');
 
  const app = express();
 
@@ -32,6 +33,22 @@
         res.send(`<h1> I am others</h1>`)
     })
 
+    app.get('/html', (req, res)=>{
+
+        // html file send in  browser
+        fs.readFile('pages/htmlFiels.html',(err, data)=>{
+            if(err){
+                console.log(err);
+
+                res.send("somthig went wrong")
+
+                return;
+            }
+
+            res.write(data);
+            res.end();
+        })
+    })
 
  app.listen(5000,()=>{
     console.log('server is running')
